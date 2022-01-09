@@ -1,0 +1,8 @@
+.Header {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+
+  border: thin solid black;
+}
