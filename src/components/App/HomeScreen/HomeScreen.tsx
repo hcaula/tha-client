@@ -1,6 +1,8 @@
 import { Trans } from 'react-i18next'
 
-import styles from 'HomeScreen.module.css'
+import Title from './Title'
+
+import styles from './HomeScreen.module.css'
 
 export const HomeScreenTitle = () => (
   <Trans i18nKey="App.Wizard.HomeScreen.title">
@@ -9,7 +11,13 @@ export const HomeScreenTitle = () => (
 )
 
 const HomeScreen = () => {
-  return <>HomeScreen </>
+  return (
+    <div className={styles.HomeScreen}>
+      <Title />
+
+      <>Inputs</>
+    </div>
+  )
 }
 
 export default HomeScreen

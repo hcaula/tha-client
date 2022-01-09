@@ -1,0 +1,37 @@
+.Title {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin: 0px 16px 16px 0px;
+}
+
+.main {
+  font-family: Rubik;
+  font-size: 24px;
+}
+
+.description {
+  color: var(--light-text-color);
+
+  font-size: 16px;
+}
+
+@media screen and (max-width: 420px) {
+  .Title {
+    flex-direction: column;
+  }
+
+  .main {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 14px;
+    text-align: center;
+  }
+}
