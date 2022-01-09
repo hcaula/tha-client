@@ -4,9 +4,8 @@
 }
 
 @font-face {
-  font-family: WorkSans;
-  font-style: italic;
-  src: url(assets/fonts/WorkSans-Italic.ttf);
+  font-family: Rubik;
+  src: url(assets/fonts/Rubik.ttf);
 }
 
 body {
@@ -23,4 +22,5 @@ body {
 
 :root {
   --brand-color-primary: #001c95;
+  --light-text-color: #708797;
 }
