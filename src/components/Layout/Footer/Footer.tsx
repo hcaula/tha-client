@@ -7,14 +7,14 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <div className={styles.Footer}>
+    <footer className={styles.Footer}>
       <div className={styles.content}>
         <img src={lockIcon} alt="" className={styles.lockIcon} />
         <div className={styles.disclaimer}>
           {t('Footer.encryptionDisclaimer')}
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 
