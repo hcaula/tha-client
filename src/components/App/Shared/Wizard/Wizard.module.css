@@ -6,3 +6,8 @@
   align-items: center;
   flex-direction: column;
 }
+
+.title {
+  color: var(--brand-color-primary);
+  margin-bottom: 24px;
+}

@@ -5,7 +5,7 @@ import styles from './Wizard.module.css'
 
 export type WizardPage = {
   Component: React.FC
-  title: React.FC
+  Title: React.FC
 }
 
 type WizardProps = {
@@ -21,15 +21,16 @@ const Wizard = ({
   onNextPage,
   onPreviousPage
 }: WizardProps) => {
-  const CurrentComponent = pages[currentPage].Component
-  const Title = pages[currentPage].title
+  const { Component, Title } = pages[currentPage]
 
   return (
     <div className={styles.Wizard}>
-      <Title />
+      <div className={styles.title}>
+        <Title />
+      </div>
       <Card>
         <>
-          <CurrentComponent />
+          <Component />
 
           {currentPage < pages.length - 1 && (
             <Button onClick={() => onNextPage()} color="primary">

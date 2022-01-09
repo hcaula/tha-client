@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans } from 'react-i18next'
 
 import Wizard, { WizardPage } from './Shared/Wizard'
 
@@ -7,11 +8,19 @@ import styles from './App.module.css'
 const pages: WizardPage[] = [
   {
     Component: () => <>page 1</>,
-    title: () => <h3>Let's find out your financial wellness score.</h3>
+    Title: () => (
+      <Trans i18nKey="App.Wizard.HomeScreen.title">
+        Let's find out your <b>financial wellness score</b>.
+      </Trans>
+    )
   },
   {
     Component: () => <>page 2</>,
-    title: () => <h3>Here's your financial wellness score:</h3>
+    Title: () => (
+      <Trans i18nKey="App.Wizard.ResultScreen.title">
+        Here's your <b>financial wellness score</b>:
+      </Trans>
+    )
   }
 ]
 
