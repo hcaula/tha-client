@@ -1,12 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+import Layout from 'components/Layout'
+
+import 'lib/i18n'
+import 'assets/css/index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Layout>
+      <div>Layout Content</div>
+    </Layout>
   </React.StrictMode>,
   document.getElementById('root')
 )
