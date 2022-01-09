@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 
 import Layout from 'components/Layout'
+import App from 'components/App'
 
 import 'lib/i18n'
 import 'assets/css/index.css'
@@ -10,7 +11,7 @@ import 'assets/css/index.css'
 ReactDOM.render(
   <React.StrictMode>
     <Layout>
-      <div>Layout Content</div>
+      <App />
     </Layout>
   </React.StrictMode>,
   document.getElementById('root')

@@ -7,3 +7,8 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.content {
+  width: calc(100% - 32px);
+  padding: 16px;
+}
