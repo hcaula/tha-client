@@ -20,3 +20,7 @@ body {
 
   background-color: #f4f8fa;
 }
+
+:root {
+  --brand-color-primary: #001c95;
+}
