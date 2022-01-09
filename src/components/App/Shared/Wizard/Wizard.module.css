@@ -10,4 +10,5 @@
 .title {
   color: var(--brand-color-primary);
   margin-bottom: 24px;
+  text-align: center;
 }
