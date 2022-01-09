@@ -2,6 +2,32 @@
   width: 100%;
 
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  border: thin solid black;
+.content {
+  padding: 16px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.lockIcon {
+  margin: 18px;
+}
+
+.disclaimer {
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  color: #708797;
+}
+
+@media screen and (max-width: 420px) {
+  .disclaimer {
+    font-size: 12px;
+  }
 }
