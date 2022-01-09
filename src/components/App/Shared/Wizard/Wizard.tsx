@@ -32,12 +32,12 @@ const Wizard = ({
           <CurrentComponent />
 
           {currentPage < pages.length - 1 && (
-            <Button onClick={() => onNextPage()} type="primary">
+            <Button onClick={() => onNextPage()} color="primary">
               Continue
             </Button>
           )}
           {currentPage > 0 && (
-            <Button onClick={() => onPreviousPage()} type="secondary">
+            <Button onClick={() => onPreviousPage()} color="secondary">
               Return
             </Button>
           )}

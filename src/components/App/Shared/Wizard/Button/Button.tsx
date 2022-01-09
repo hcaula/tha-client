@@ -1,15 +1,15 @@
 import styles from './Button.module.css'
 
-type ButtonType = 'primary' | 'secondary'
+type ButtonColor = 'primary' | 'secondary'
 
 type ButtonProps = {
   children: React.ReactNode
   onClick: React.MouseEventHandler<HTMLButtonElement>
-  type?: ButtonType
+  color?: ButtonColor
 }
 
-const Button = ({ onClick, children, type = 'primary' }: ButtonProps) => (
-  <button className={`${styles.Button} ${styles[type]}`} onClick={onClick}>
+const Button = ({ onClick, children, color = 'primary' }: ButtonProps) => (
+  <button className={`${styles.Button} ${styles[color]}`} onClick={onClick}>
     {children}
   </button>
 )
