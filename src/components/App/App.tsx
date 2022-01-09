@@ -1,26 +1,19 @@
 import { useState } from 'react'
-import { Trans } from 'react-i18next'
 
 import Wizard, { WizardPage } from './Shared/Wizard'
+import HomeScreen, { HomeScreenTitle } from './HomeScreen'
+import ResultScreen, { ResultScreenTitle } from './ResultScreen'
 
 import styles from './App.module.css'
 
 const pages: WizardPage[] = [
   {
-    Component: () => <>page 1</>,
-    Title: () => (
-      <Trans i18nKey="App.Wizard.HomeScreen.title">
-        Let's find out your <b>financial wellness score</b>.
-      </Trans>
-    )
+    Component: HomeScreen,
+    Title: HomeScreenTitle
   },
   {
-    Component: () => <>page 2</>,
-    Title: () => (
-      <Trans i18nKey="App.Wizard.ResultScreen.title">
-        Here's your <b>financial wellness score</b>:
-      </Trans>
-    )
+    Component: ResultScreen,
+    Title: ResultScreenTitle
   }
 ]
 
