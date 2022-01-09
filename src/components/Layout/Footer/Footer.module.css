@@ -23,7 +23,7 @@
   font-size: 14px;
   line-height: 150%;
   text-align: center;
-  color: #708797;
+  color: var(--light-text-color);
 }
 
 @media screen and (max-width: 420px) {
