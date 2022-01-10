@@ -4,6 +4,10 @@ const translations = {
       Footer: {
         encryptionDisclaimer:
           "Your financial information is encrypted and secure. We'll never share or sell any of your personal data."
+      },
+      Wizard: {
+        continueButton: 'Continue',
+        returnButton: 'Return'
       }
     },
     App: {

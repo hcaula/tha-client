@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import Card from './Card'
 import Button from './Button'
 
@@ -15,6 +17,8 @@ type WizardProps = {
 }
 
 const Wizard = ({ pages, currentPage, onPreviousPage }: WizardProps) => {
+  const { t } = useTranslation('common')
+
   const { Component, Title } = pages[currentPage]
 
   return (
@@ -28,12 +32,12 @@ const Wizard = ({ pages, currentPage, onPreviousPage }: WizardProps) => {
 
           {currentPage < pages.length - 1 && (
             <Button color="primary" type="submit">
-              Continue
+              {t('Wizard.continueButton')}
             </Button>
           )}
           {currentPage > 0 && (
             <Button onClick={() => onPreviousPage()} color="secondary">
-              Return
+              {t('Wizard.returnButton')}
             </Button>
           )}
         </>
