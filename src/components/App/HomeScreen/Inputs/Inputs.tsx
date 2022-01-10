@@ -10,10 +10,14 @@ const Inputs = () => {
   return (
     <div className={styles.Inputs}>
       <CurrencyInput
+        name="annualIncome"
         label={t('Wizard.HomeScreen.Inputs.annualIncome')}
         className={styles.annualIncome}
       />
-      <CurrencyInput label={t('Wizard.HomeScreen.Inputs.monthlyCosts')} />
+      <CurrencyInput
+        name="monthlyCosts"
+        label={t('Wizard.HomeScreen.Inputs.monthlyCosts')}
+      />
     </div>
   )
 }

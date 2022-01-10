@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import Wizard, { WizardPage } from './Shared/Wizard'
 import HomeScreen, { HomeScreenTitle } from './HomeScreen'
@@ -19,9 +19,11 @@ const pages: WizardPage[] = [
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState<number>(0)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setCurrentPage((currentPage) => currentPage + 1)
   }
 
   const handlePreviousPage = () =>
@@ -29,9 +31,10 @@ const App = () => {
 
   return (
     <main className={styles.App}>
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <Wizard
           pages={pages}
+          form={formRef}
           currentPage={currentPage}
           onPreviousPage={handlePreviousPage}
         />

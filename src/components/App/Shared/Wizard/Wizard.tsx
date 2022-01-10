@@ -5,18 +5,23 @@ import Button from './Button'
 
 import styles from './Wizard.module.css'
 
+type WizardPageProps = {
+  form: React.RefObject<HTMLFormElement>
+}
+
 export type WizardPage = {
-  Component: React.FC
+  Component: React.FC<WizardPageProps>
   Title: React.FC
 }
 
 type WizardProps = {
   pages: WizardPage[]
+  form: React.RefObject<HTMLFormElement>
   currentPage: number
   onPreviousPage: Function
 }
 
-const Wizard = ({ pages, currentPage, onPreviousPage }: WizardProps) => {
+const Wizard = ({ pages, form, currentPage, onPreviousPage }: WizardProps) => {
   const { t } = useTranslation('common')
 
   const { Component, Title } = pages[currentPage]
@@ -28,7 +33,7 @@ const Wizard = ({ pages, currentPage, onPreviousPage }: WizardProps) => {
       </div>
       <Card>
         <>
-          <Component />
+          <Component form={form} />
 
           {currentPage < pages.length - 1 && (
             <Button color="primary" type="submit">
