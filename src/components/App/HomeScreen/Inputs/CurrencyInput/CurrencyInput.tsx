@@ -17,6 +17,9 @@ const CurrencyInput = ({ label, className }: CurrencyInputProps) => {
           type="number"
           inputMode="numeric"
           pattern="[0-9]*"
+          step="1"
+          min="1"
+          required
           className={styles.input}
         />
       </div>

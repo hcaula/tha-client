@@ -4,12 +4,25 @@ type ButtonColor = 'primary' | 'secondary'
 
 type ButtonProps = {
   children: React.ReactNode
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  onSubmit?: Function
+  type?: 'button' | 'submit' | 'reset'
   color?: ButtonColor
 }
 
-const Button = ({ onClick, children, color = 'primary' }: ButtonProps) => (
-  <button className={`${styles.Button} ${styles[color]}`} onClick={onClick}>
+const Button = ({
+  onClick,
+  onSubmit,
+  children,
+  type,
+  color = 'primary'
+}: ButtonProps) => (
+  <button
+    className={`${styles.Button} ${styles[color]}`}
+    onClick={(e) => onClick && onClick(e)}
+    onSubmit={(e) => onSubmit && onSubmit(e)}
+    type={type}
+  >
     {children}
   </button>
 )

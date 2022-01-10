@@ -11,16 +11,10 @@ export type WizardPage = {
 type WizardProps = {
   pages: WizardPage[]
   currentPage: number
-  onNextPage: Function
   onPreviousPage: Function
 }
 
-const Wizard = ({
-  pages,
-  currentPage,
-  onNextPage,
-  onPreviousPage
-}: WizardProps) => {
+const Wizard = ({ pages, currentPage, onPreviousPage }: WizardProps) => {
   const { Component, Title } = pages[currentPage]
 
   return (
@@ -33,7 +27,7 @@ const Wizard = ({
           <Component />
 
           {currentPage < pages.length - 1 && (
-            <Button onClick={() => onNextPage()} color="primary">
+            <Button color="primary" type="submit">
               Continue
             </Button>
           )}

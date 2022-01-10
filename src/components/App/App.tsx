@@ -20,18 +20,22 @@ const pages: WizardPage[] = [
 const App = () => {
   const [currentPage, setCurrentPage] = useState<number>(0)
 
-  const handleNextPage = () => setCurrentPage((currentPage) => currentPage + 1)
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
+
   const handlePreviousPage = () =>
     setCurrentPage((currentPage) => currentPage - 1)
 
   return (
     <main className={styles.App}>
-      <Wizard
-        pages={pages}
-        currentPage={currentPage}
-        onNextPage={handleNextPage}
-        onPreviousPage={handlePreviousPage}
-      />
+      <form onSubmit={handleSubmit}>
+        <Wizard
+          pages={pages}
+          currentPage={currentPage}
+          onPreviousPage={handlePreviousPage}
+        />
+      </form>
     </main>
   )
 }
