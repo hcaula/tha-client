@@ -7,7 +7,6 @@ class Api {
   axios: AxiosInstance
 
   constructor() {
-    console.log(process.env)
     this.axios = axios.create({ baseURL: process.env.REACT_APP_API_URL })
   }
 
