@@ -1,5 +1,7 @@
 import { Trans } from 'react-i18next'
 
+import { useHealthScore } from 'lib/api'
+
 import styles from 'ResultScreen.module.css'
 
 export const ResultScreenTitle = () => (
@@ -8,7 +10,17 @@ export const ResultScreenTitle = () => (
   </Trans>
 )
 
-const ResultScreen = () => {
+type ResultScreenProps = {
+  form: React.RefObject<HTMLFormElement>
+}
+
+const ResultScreen = ({ form }: ResultScreenProps) => {
+  const { data, loading, error } = useHealthScore({
+    monthlyCosts: form.current?.monthlyCosts?.value,
+    annualIncome: form.current?.annualIncome?.value
+  })
+
+  console.log({ data, loading, error })
   return <>ResultScreen </>
 }
 
