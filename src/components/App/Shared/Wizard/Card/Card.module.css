@@ -1,8 +1,12 @@
+:root {
+  --card-padding: 32px;
+}
+
 .Card {
-  width: calc(100% - 64px);
-  padding: 32px;
-  max-width: 544px;
-  min-height: 321px;
+  width: calc(100% - (var(--card-padding) * 2));
+  padding: var(--card-padding);
+  max-width: calc(544px - var(--card-padding) * 2);
+  min-height: calc(320px - var(--card-padding) * 2);
   border-radius: 8px;
 
   display: flex;

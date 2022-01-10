@@ -1,0 +1,25 @@
+.Inputs {
+  width: 100%;
+  margin-top: 24px;
+
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+}
+
+.annualIncome {
+  margin-right: 16px;
+}
+
+@media screen and (max-width: 420px) {
+  .Inputs {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    flex-direction: column;
+  }
+
+  .annualIncome {
+    margin-bottom: 16px;
+    margin-right: 0px;
+  }
+}

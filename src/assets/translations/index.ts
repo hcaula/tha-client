@@ -13,6 +13,10 @@ const translations = {
           Title: {
             main: 'Financial wellness test',
             description: 'Enter your financial information below'
+          },
+          Inputs: {
+            annualIncome: 'Annual income',
+            monthlyCosts: 'Monthly costs'
           }
         },
         ResultScreen: {

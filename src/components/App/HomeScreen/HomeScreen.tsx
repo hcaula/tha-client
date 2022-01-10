@@ -1,6 +1,7 @@
 import { Trans } from 'react-i18next'
 
 import Title from './Title'
+import Inputs from './Inputs'
 
 import styles from './HomeScreen.module.css'
 
@@ -14,8 +15,7 @@ const HomeScreen = () => {
   return (
     <div className={styles.HomeScreen}>
       <Title />
-
-      <>Inputs</>
+      <Inputs />
     </div>
   )
 }
