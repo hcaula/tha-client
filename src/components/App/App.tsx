@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <main className={styles.App}>
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
         <Wizard
           pages={pages}
           form={formRef}
