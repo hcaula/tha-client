@@ -18,9 +18,9 @@ export const useHealthScore = (params: HealthScoreParams) => {
       .then((healthScore) => {
         setState((state) => ({ ...state, healthScore, loading: false }))
       })
-      .catch((error) =>
+      .catch((error) => {
         setState((state) => ({ ...state, error, loading: false }))
-      )
+      })
   }, [])
 
   return { loading, healthScore, error }

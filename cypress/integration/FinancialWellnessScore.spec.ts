@@ -9,6 +9,7 @@ const RESULTS_TITLE_LOW = 'results-title-LOW'
 const RESULTS_TITLE_MEDIUM = 'results-title-MEDIUM'
 const RESULTS_TITLE_HEALHTY = 'results-title-HEALTHY'
 const ERROR_DATA_CY = 'financialHealthError'
+const HOMESCREEN_STEP = 'homeScreen'
 
 const dataCy = (value: string): string => `[data-cy="${value}"]`
 
@@ -17,24 +18,26 @@ describe('FinancialWellnessScore', () => {
 
   it('validates the form fields', () => {
     // Validate required fields
-    cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
     cy.get(dataCy(ANNUAL_INCOME_DATA_CY))
       .invoke('prop', 'validity')
       .should('include', { valueMissing: true })
     cy.get(dataCy(MONTHLY_COSTS_DATA_CY))
       .invoke('prop', 'validity')
       .should('include', { valueMissing: true })
+    cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
 
     // Validate min values
     cy.get(dataCy(ANNUAL_INCOME_DATA_CY))
       .type('0')
       .invoke('prop', 'validity')
       .should('include', { rangeUnderflow: true })
+    cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
 
     cy.get(dataCy(MONTHLY_COSTS_DATA_CY))
       .type('0')
       .invoke('prop', 'validity')
       .should('include', { rangeUnderflow: true })
+    cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
   })
 
   it('does not submit form with invalid inputs', () => {
@@ -47,14 +50,18 @@ describe('FinancialWellnessScore', () => {
     cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
   })
 
+  it('returns to the first page after clicking on return button', () => {
+    cy.stubFinancialHealthStatus({ data: 'LOW' })
+    cy.fillFinancialHealthForm({})
+
+    cy.get(dataCy(RETURN_BUTTON_DATA_CY)).click()
+    cy.get(dataCy(HOMESCREEN_STEP)).should('exist')
+  })
+
   context('when the health score is low', () => {
     beforeEach(() => {
-      cy.stubFinancialHealthStatus('LOW')
-      cy.visit('')
-
-      cy.get(dataCy(ANNUAL_INCOME_DATA_CY)).type('1000')
-      cy.get(dataCy(MONTHLY_COSTS_DATA_CY)).type('75')
-      cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
+      cy.stubFinancialHealthStatus({ data: 'LOW' })
+      cy.fillFinancialHealthForm({ monthlyCosts: '75' })
     })
 
     it('should show health status low message', () => {
@@ -64,12 +71,8 @@ describe('FinancialWellnessScore', () => {
 
   context('when the health score is medium', () => {
     beforeEach(() => {
-      cy.stubFinancialHealthStatus('MEDIUM')
-      cy.visit('')
-
-      cy.get(dataCy(ANNUAL_INCOME_DATA_CY)).type('1000')
-      cy.get(dataCy(MONTHLY_COSTS_DATA_CY)).type('30')
-      cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
+      cy.stubFinancialHealthStatus({ data: 'MEDIUM' })
+      cy.fillFinancialHealthForm({ monthlyCosts: '30' })
     })
 
     it('should show health status medium message', () => {
@@ -79,12 +82,8 @@ describe('FinancialWellnessScore', () => {
 
   context('when the health score is healthy', () => {
     beforeEach(() => {
-      cy.stubFinancialHealthStatus('HEALTHY')
-      cy.visit('')
-
-      cy.get(dataCy(ANNUAL_INCOME_DATA_CY)).type('1000')
-      cy.get(dataCy(MONTHLY_COSTS_DATA_CY)).type('10')
-      cy.get(dataCy(SUBMIT_BUTTON_DATA_CY)).click()
+      cy.stubFinancialHealthStatus({ data: 'HEALTHY' })
+      cy.fillFinancialHealthForm({ monthlyCosts: '10' })
     })
 
     it('should show health status healthy message', () => {
@@ -92,5 +91,14 @@ describe('FinancialWellnessScore', () => {
     })
   })
 
-  context('when the API returns an error', () => {})
+  context('when the API returns an error', () => {
+    beforeEach(() => {
+      cy.stubFinancialHealthStatus({ error: 'Some error' })
+      cy.fillFinancialHealthForm({})
+    })
+
+    it('should show health status healthy message', () => {
+      cy.get(dataCy(ERROR_DATA_CY)).should('exist')
+    })
+  })
 })

@@ -13,7 +13,7 @@ export const HomeScreenTitle = () => (
 
 const HomeScreen = () => {
   return (
-    <div className={styles.HomeScreen}>
+    <div className={styles.HomeScreen} data-cy="homeScreen">
       <Title />
       <Inputs />
     </div>

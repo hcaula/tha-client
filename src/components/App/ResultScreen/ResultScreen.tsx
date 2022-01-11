@@ -25,7 +25,6 @@ const ResultScreen = ({ form }: ResultScreenProps) => {
   return loading ? (
     <Loading />
   ) : error ? (
-    // TODO: handle errors properly with ErrorBoundary
     <Error />
   ) : (
     <Results healthScore={healthScore!} />

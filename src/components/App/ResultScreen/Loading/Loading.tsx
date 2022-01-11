@@ -1,9 +1,11 @@
 import styles from './Loading.module.css'
 
-const Loading = () => (
-  <div className={styles.Loading}>
-    <div className={styles.loader} />
-  </div>
-)
+const Loading = () => {
+  return (
+    <div className={styles.Loading}>
+      <div className={styles.loader} />
+    </div>
+  )
+}
 
 export default Loading
