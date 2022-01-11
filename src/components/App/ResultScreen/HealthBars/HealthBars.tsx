@@ -19,6 +19,7 @@ const HealthBars = ({ levels, coloredLevels, color }: HealthBarsProps) => {
         const isColored = index < coloredLevels
         return (
           <div
+            key={index}
             className={`${styles.healthBar} ${isColored && styles[color]}`}
           />
         )
