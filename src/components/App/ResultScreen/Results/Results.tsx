@@ -33,7 +33,10 @@ const Results = ({ healthScore }: ResultsProps) => {
       )}
 
       <div className={styles.results}>
-        <div className={styles.resultsTitle}>
+        <div
+          className={styles.resultsTitle}
+          data-cy={`results-title-${healthScore}`}
+        >
           {t(`Wizard.ResultScreen.Results.title-${healthScore}`)}
         </div>
         <div className={styles.resultsDescription}>

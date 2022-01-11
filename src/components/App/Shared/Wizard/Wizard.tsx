@@ -36,12 +36,16 @@ const Wizard = ({ pages, form, currentPage, onPreviousPage }: WizardProps) => {
           <Component form={form} />
 
           {currentPage < pages.length - 1 && (
-            <Button color="primary" type="submit">
+            <Button dataCy="submitBtn" color="primary" type="submit">
               {t('Wizard.continueButton')}
             </Button>
           )}
           {currentPage > 0 && (
-            <Button onClick={() => onPreviousPage()} color="secondary">
+            <Button
+              dataCy="returnBtn"
+              onClick={() => onPreviousPage()}
+              color="secondary"
+            >
               {t('Wizard.returnButton')}
             </Button>
           )}

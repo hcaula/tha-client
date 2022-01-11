@@ -16,6 +16,7 @@ const CurrencyInput = ({ name, label, className }: CurrencyInputProps) => {
         <img src={moneySignIcon} alt="" className={styles.moneySign} />
         <input
           name={name}
+          data-cy={name}
           type="number"
           inputMode="numeric"
           pattern="[0-9]*"
