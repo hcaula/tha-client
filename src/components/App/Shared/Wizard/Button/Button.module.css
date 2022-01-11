@@ -13,6 +13,11 @@
   background-color: white;
 }
 
+.Button:hover,
+.Button:focus {
+  font-weight: bold;
+}
+
 .primary {
   background-color: var(--brand-color-primary);
   color: white;
