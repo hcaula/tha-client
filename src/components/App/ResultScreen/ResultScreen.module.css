@@ -1,0 +1,42 @@
+.ResultScreen {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 64px;
+  width: 64px;
+  margin-bottom: 24px;
+}
+
+.results {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.resultsTitle {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Rubik;
+  text-align: center;
+}
+
+.resultsDescription {
+  font-size: 16px;
+  color: #4d6475;
+  text-align: center;
+}
+
+@media screen and (max-width: 420px) {
+  .resultsTitle {
+    font-size: 24px;
+  }
+
+  .resultsDescription {
+    font-size: 14px;
+  }
+}

@@ -24,7 +24,19 @@ const translations = {
           }
         },
         ResultScreen: {
-          title: "Here's your <1>financial wellness score</1>:"
+          title: "Here's your <1>financial wellness score</1>:",
+          Results: {
+            'title-HEALTHY': 'Congratulations!',
+            'title-MEDIUM': 'There is room for improvement.',
+            'title-LOW': 'Caution!',
+            description:
+              'Your financial wellness score is <1>{{healthScore}}</1>.'
+          },
+          HealthScore: {
+            HEALTHY: 'Healthy',
+            MEDIUM: 'Average',
+            LOW: 'Unhealthy'
+          }
         }
       }
     }
